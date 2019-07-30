@@ -20,7 +20,7 @@
 
 #### IMPLEMENTED ER DIAGRAM (STAR SCHEMA)
 
-		
+		- ![ER image](https://github.com/abuchireddygari/data-mart-nyc-parking-violation/er1.png)
 
 
 #### Scenarios:
@@ -173,6 +173,7 @@ I’ve used a counter for dimension id but you can also use hashkey but counter,
 https://databricks-prod-cloudfront.cloud.databricks.com/public/4027ec902e239c93eaaa8714f173bcfc/5041140880827814/3333566614432119/2252038084290521/latest.html
 
 IDEAL ER DIAGRAM (SNOWFLAKE SCHEMA)
+	- ![ER2 image](https://github.com/abuchireddygari/data-mart-nyc-parking-violation/er2.png)
 
 
 
