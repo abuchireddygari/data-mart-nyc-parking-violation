@@ -20,7 +20,7 @@ max_feet_from_curb_number:integer
 min_feet_from_curb_number:integer
 ***/
 
---Number of violation per month in 2017?
+-Number of violation per month in 2017
 
 select count(count_summons_number), month
 from dm_nyu_parking.agg_nyu_parking_violation_info
@@ -77,10 +77,10 @@ group by issuer_precinct;
 
 %sql
 
---SHOW COLUMNS IN parking_violations_issued___fiscal_year_2017_9a659_csv;-
---select * from dim_issuer_info Limit 1;
+-SHOW COLUMNS IN parking_violations_issued___fiscal_year_2017_9a659_csv;-
+-select * from dim_issuer_info Limit 1;
 
---Most common reasons of all violation (Top-k)
+-Most common reasons of all violation (Top-k)
 
 select count(*) as frequency, violation_description
 from dm_nyu_parking.agg_nyu_parking_violation_info
