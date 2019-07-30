@@ -31,7 +31,7 @@ group by month;
 
 %sql
 
---Number of violations per time of day (when do most violations happen)?
+-Number of violations per time of day (when do most violations happen)
 
 select count(count_summons_number) as frequency, violation_time
 from dm_nyu_parking.agg_nyu_parking_violation_info
@@ -42,7 +42,7 @@ order by frequency desc;
 
 %sql
 
---Reason of violation per location?
+-Reason of violation per location
 
 select violation_description, violation_location
 from dm_nyu_parking.agg_nyu_parking_violation_info a, dm_nyu_parking.dim_violation_location_info b
@@ -54,7 +54,7 @@ Limit 10;
 
 %sql
 
---Reason of violation per location?
+-Reason of violation per location
 
 select violation_description, violation_location
 from dm_nyu_parking.agg_nyu_parking_violation_info a, dm_nyu_parking.dim_violation_location_info b
@@ -66,7 +66,7 @@ Limit 10;
 
 %sql
 
---Number violations issued per police officer or precinct?
+-Number violations issued per police officer or precinct
 
 select count(count_summons_number), issuer_precinct
 from dm_nyu_parking.agg_nyu_parking_violation_info a, dm_nyu_parking.dim_issuer_info b
