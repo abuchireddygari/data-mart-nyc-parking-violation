@@ -1,70 +1,70 @@
 # Databricks notebook source
-# MAGIC %sql
-# MAGIC 
-# MAGIC --Number of violation per month in 2017?
-# MAGIC 
-# MAGIC select count(summons_number), month
-# MAGIC from dm_nyu_parking.fact_nyu_parking_violation_info
-# MAGIC where year='2017'
-# MAGIC group by month;
+%sql
 
-# COMMAND ----------
+-Number of violation per month in 2017?
 
-# MAGIC %sql
-# MAGIC 
-# MAGIC --Number of violations per time of day (when do most violations happen)?
-# MAGIC 
-# MAGIC select count(summons_number) as frequency, violation_time
-# MAGIC from dm_nyu_parking.fact_nyu_parking_violation_info
-# MAGIC group by violation_time
-# MAGIC order by frequency desc;
+select count(summons_number), month
+from dm_nyu_parking.fact_nyu_parking_violation_info
+where year='2017'
+group by month;
 
-# COMMAND ----------
+# COMMAND -----
 
-# MAGIC %sql
-# MAGIC 
-# MAGIC --Reason of violation per location?
-# MAGIC 
-# MAGIC select violation_description, violation_location
-# MAGIC from dm_nyu_parking.fact_nyu_parking_violation_info a, dm_nyu_parking.dim_violation_location_info b
-# MAGIC where a.location_id = b.location_id
-# MAGIC group by violation_description, violation_location
-# MAGIC Limit 10;
+%sql
 
-# COMMAND ----------
+-Number of violations per time of day (when do most violations happen)?
 
-# MAGIC %sql
-# MAGIC 
-# MAGIC --Reason of violation per location?
-# MAGIC 
-# MAGIC select violation_description, violation_location
-# MAGIC from dm_nyu_parking.fact_nyu_parking_violation_info a, dm_nyu_parking.dim_violation_location_info b
-# MAGIC where a.location_id = b.location_id
-# MAGIC group by violation_description, violation_location
-# MAGIC Limit 10;
+select count(summons_number) as frequency, violation_time
+from dm_nyu_parking.fact_nyu_parking_violation_info
+group by violation_time
+order by frequency desc;
 
-# COMMAND ----------
+# COMMAND -----
 
-# MAGIC %sql
-# MAGIC 
-# MAGIC --Number violations issued per police officer or precinct?
-# MAGIC 
-# MAGIC select count(summons_number), issuer_precinct
-# MAGIC from dm_nyu_parking.fact_nyu_parking_violation_info a, dm_nyu_parking.dim_issuer_info b
-# MAGIC where a.issuer_id = b.issuer_id
-# MAGIC group by issuer_precinct;
+%sql
 
-# COMMAND ----------
+-Reason of violation per location?
 
-# MAGIC %sql
-# MAGIC 
-# MAGIC --SHOW COLUMNS IN parking_violations_issued___fiscal_year_2017_9a659_csv;-
-# MAGIC --select * from dim_issuer_info Limit 1;
-# MAGIC 
-# MAGIC --Most common reasons of all violation (Top-k)
-# MAGIC 
-# MAGIC select count(*) as frequency, violation_description
-# MAGIC from dm_nyu_parking.fact_nyu_parking_violation_info
-# MAGIC group by violation_description
-# MAGIC order by frequency desc
-# MAGIC Limit 10;
+select violation_description, violation_location
+from dm_nyu_parking.fact_nyu_parking_violation_info a, dm_nyu_parking.dim_violation_location_info b
+where a.location_id = b.location_id
+group by violation_description, violation_location
+Limit 10;
+
+# COMMAND -----
+
+%sql
+
+-Reason of violation per location?
+
+select violation_description, violation_location
+from dm_nyu_parking.fact_nyu_parking_violation_info a, dm_nyu_parking.dim_violation_location_info b
+where a.location_id = b.location_id
+group by violation_description, violation_location
+Limit 10;
+
+# COMMAND -----
+
+%sql
+
+-Number violations issued per police officer or precinct?
+
+select count(summons_number), issuer_precinct
+from dm_nyu_parking.fact_nyu_parking_violation_info a, dm_nyu_parking.dim_issuer_info b
+where a.issuer_id = b.issuer_id
+group by issuer_precinct;
+
+# COMMAND -----
+
+%sql
+
+-SHOW COLUMNS IN parking_violations_issued___fiscal_year_2017_9a659_csv;-
+-select * from dim_issuer_info Limit 1;
+
+-Most common reasons of all violation (Top-k)
+
+select count(*) as frequency, violation_description
+from dm_nyu_parking.fact_nyu_parking_violation_info
+group by violation_description
+order by frequency desc
+Limit 10;
