@@ -19,8 +19,7 @@
 
 
 #### IMPLEMENTED ER DIAGRAM (STAR SCHEMA)
-
-		- ![ER image](https://github.com/abuchireddygari/data-mart-nyc-parking-violation/blob/master/er1.png)
+- ![ER image](https://github.com/abuchireddygari/data-mart-nyc-parking-violation/blob/master/er1.png)
 
 
 #### Scenarios:
